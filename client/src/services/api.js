@@ -1,40 +1,44 @@
-const API_URL = "https://elearning-backend.onrender.com";
+// ✅ BASE URL (IMPORTANT: includes /api)
+const API_URL = "https://elearning-backend.onrender.com/api";
 
-export const api = async (endpoint, method = 'GET', body = null) => {
-  const token = localStorage.getItem('token');
+// ✅ Generic API function
+export const api = async (endpoint, method = "GET", body = null) => {
+  const token = localStorage.getItem("token");
 
   const options = {
     method,
     headers: {
-      'Content-Type': 'application/json',
-      ...(token && { Authorization: `Bearer ${token}` })
-    }
+      "Content-Type": "application/json",
+      ...(token && { Authorization: `Bearer ${token}` }),
+    },
   };
 
-  // ✅ Attach body only for non-GET requests
-  if (body && method !== 'GET') {
+  // ✅ Attach body for POST/PUT/PATCH
+  if (body && method !== "GET") {
     options.body = JSON.stringify(body);
   }
 
   let res;
+
   try {
     res = await fetch(`${API_URL}${endpoint}`, options);
-  } catch (networkError) {
-    // 🔴 Server not reachable / CORS / offline
-    throw new Error('Unable to connect to server. Please try again later.');
+  } catch (error) {
+    // 🔴 Network / server down
+    throw new Error("Unable to connect to server. Please try again later.");
   }
 
-  // ✅ Try to parse JSON safely
   let data;
+
   try {
     data = await res.json();
   } catch {
     data = null;
   }
 
+  // ❌ Handle API errors
   if (!res.ok) {
     throw new Error(
-      data?.message || 'Something went wrong. Please try again.'
+      data?.message || "Something went wrong. Please try again."
     );
   }
 
