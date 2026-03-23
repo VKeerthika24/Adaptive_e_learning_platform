@@ -1,46 +1,35 @@
-// ✅ BASE URL (IMPORTANT: includes /api)
-const API_URL = "https://elearning-backend.onrender.com/api";
+require("dotenv").config();
 
-// ✅ Generic API function
-export const api = async (endpoint, method = "GET", body = null) => {
-  const token = localStorage.getItem("token");
+const express = require("express");
+const cors = require("cors");
 
-  const options = {
-    method,
-    headers: {
-      "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }),
-    },
-  };
+const app = express();
 
-  // ✅ Attach body for POST/PUT/PATCH
-  if (body && method !== "GET") {
-    options.body = JSON.stringify(body);
-  }
+// ✅ MIDDLEWARE
+app.use(express.json());
 
-  let res;
+// ✅ CORS FIX (VERY IMPORTANT)
+app.use(
+  cors({
+    origin: "https://your-netlify-site.netlify.app", // 🔴 replace this
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
-  try {
-    res = await fetch(`${API_URL}${endpoint}`, options);
-  } catch (error) {
-    // 🔴 Network / server down
-    throw new Error("Unable to connect to server. Please try again later.");
-  }
+// ✅ ROUTES
+app.use("/api/auth", require("./routes/auth.routes"));
+app.use("/api/quiz", require("./routes/quiz.routes"));
+app.use("/api/essay", require("./routes/essay.routes"));
 
-  let data;
+// ✅ TEST ROUTE
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
 
-  try {
-    data = await res.json();
-  } catch {
-    data = null;
-  }
+// ❌ OPTIONAL (for debugging)
+app.use((req, res) => {
+  res.status(404).json({ message: "API route not found" });
+});
 
-  // ❌ Handle API errors
-  if (!res.ok) {
-    throw new Error(
-      data?.message || "Something went wrong. Please try again."
-    );
-  }
-
-  return data;
-};
+module.exports = app;
