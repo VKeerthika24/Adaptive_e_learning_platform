@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:4000/api';
+const API_URL = "https://elearning-backend.onrender.com";
 
 export const api = async (endpoint, method = 'GET', body = null) => {
   const token = localStorage.getItem('token');
