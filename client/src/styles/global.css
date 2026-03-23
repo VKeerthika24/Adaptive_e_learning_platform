@@ -1,0 +1,290 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card {
+  background: white;
+  padding: 30px;
+  width: 320px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-toggle {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.auth-toggle button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  background: #e5e7eb;
+}
+
+.auth-toggle .active {
+  background: #2563eb;
+  color: white;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.auth-card button[type='submit'] {
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.error-text {
+  color: red;
+  font-size: 14px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f2937;
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo {
+  margin: 0;
+}
+
+.nav-center button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-center .active {
+  background: #2563eb;
+  border-radius: 4px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout-btn {
+  padding: 6px 10px;
+  background: #ef4444;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.home-container {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.home-title {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.home-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.home-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.primary-btn {
+  padding: 12px 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.secondary-btn {
+  padding: 12px 20px;
+  background: #e5e7eb;
+  color: #111;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.dashboard-container {
+  padding: 20px;
+}
+
+.page-title {
+  margin-bottom: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-card h3 {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.stat-card p {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.dashboard-section {
+  margin-bottom: 25px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  background: #f9fafb;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.center-text {
+  text-align: center;
+}
+.quiz-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.difficulty-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.difficulty-buttons button {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  border-radius: 4px;
+}
+
+.question-text {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+}
+
+.option-btn.selected {
+  background: #dbeafe;
+  border-color: #2563eb;
+}
+
+.next-btn {
+  margin-top: 20px;
+  padding: 10px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.essay-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.essay-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.essay-container input,
+.essay-container textarea,
+.essay-container select {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.essay-container button {
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.profile-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.profile-card {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

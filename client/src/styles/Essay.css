@@ -1,0 +1,448 @@
+/* ============================================================
+   Global Theme Variables
+============================================================ */
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --green: #10b981;
+  --orange: #f59e0b;
+  --red: #ef4444;
+  --shadow: 0 10px 30px rgba(16,24,40,0.06);
+}
+
+/* ============================================================
+   Page Layout
+============================================================ */
+.essay-page {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 48px 16px;
+  box-sizing: border-box;
+}
+
+.essay-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   Header
+============================================================ */
+.essay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.essay-title-main {
+  font-size: 2.25rem;
+  margin: 0;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* ============================================================
+   Buttons
+============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #111827;
+}
+
+.btn-outline {
+  background: white;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-primary-outline {
+  background: white;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+.icon-sm { width: 18px; height: 18px; }
+.icon-md { width: 22px; height: 22px; }
+
+/* ============================================================
+   Card Wrapper
+============================================================ */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+}
+
+.form-card { padding: 20px; }
+
+/* ============================================================
+   Difficulty Selector
+============================================================ */
+.difficulty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.level-btn {
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.level-inactive {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.level-easy {
+  background: #059669;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(6,101,76,0.12);
+}
+
+.level-medium {
+  background: #d97706;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(185,105,11,0.12);
+}
+
+.level-expert {
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(180,40,40,0.12);
+}
+
+/* ============================================================
+   Prompt Card — Compact & Clean
+============================================================ */
+.prompt-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #f1f7ff;
+  border-left: 4px solid var(--primary);
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin: 10px 0 16px 0;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.03);
+}
+
+.prompt-left {
+  flex: 0 0 36px;
+  color: var(--primary);
+}
+
+.prompt-content { flex: 1; }
+.prompt-title {
+  margin: 0 0 4px 0;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.prompt-text { margin: 0; color: var(--muted); }
+
+/* ============================================================
+   Form Inputs
+============================================================ */
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #e6e9ee;
+  border-radius: 8px;
+  font-size: 0.96rem;
+  outline: none;
+  resize: none;
+  background: white;
+  transition: box-shadow 140ms ease, border-color 140ms ease, transform 100ms ease;
+  box-sizing: border-box;
+}
+
+.input:focus,
+.textarea:focus {
+  box-shadow: 0 6px 18px rgba(37,99,235,0.08);
+  border-color: rgba(37,99,235,0.35);
+  transform: translateY(-1px);
+}
+
+.input {
+  height: 44px;
+  line-height: 1.2;
+  padding-left: 44px; /* If icon exists */
+}
+
+/* wrapper for textarea with word count */
+.textarea-wrap {
+  position: relative;
+}
+
+.word-count {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: rgba(255,255,255,0.6);
+  padding: 2px 8px;
+  border-radius: 999px;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(15,23,42,0.04);
+}
+
+.form-group { margin-bottom: 14px; }
+
+/* ============================================================
+   Submit Button — Full Width
+============================================================ */
+.btn.full,
+.btn.btn-primary.full {
+  width: 100%;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-top: 12px;
+  box-shadow: 0 8px 28px rgba(37,99,235,0.08);
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.btn.full:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 48px rgba(37,99,235,0.12);
+}
+
+/* ============================================================
+   History Grid
+============================================================ */
+.history-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 900px) {
+  .history-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.history-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.history-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(16,24,40,0.08);
+}
+
+.history-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.history-title {
+  margin: 0;
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 1.02rem;
+}
+
+.history-score {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.history-excerpt {
+  color: var(--muted);
+  font-size: 0.95rem;
+  height: 54px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ============================================================
+   Detail View
+============================================================ */
+.detail-card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.back-link {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.detail-title {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.detail-meta {
+  color: var(--muted);
+  margin: 6px 0 0 0;
+}
+
+.section {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #eef2f7;
+}
+
+.section-title {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+/* essay content */
+.essay-content {
+  white-space: pre-wrap;
+  color: #111827;
+  line-height: 1.6;
+}
+
+/* gradient score box */
+.gradient-score {
+  background: linear-gradient(135deg, var(--primary), #4f46e5);
+  color: white;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.score-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.big-score {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+.award-icon {
+  width: 64px;
+  height: 64px;
+  opacity: 0.85;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat-box {
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid #eef2f7;
+}
+
+.stat-label {
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.stat-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.stat-number.blue { color: var(--primary); }
+.stat-number.green { color: var(--green); }
+.stat-number.orange { color: var(--orange); }
+
+/* Suggestions */
+.suggestions { margin: 0; padding-left: 16px; list-style: none; }
+.suggestion-item { margin-bottom: 8px; color: #374151; }
+
+/* ============================================================
+   Responsive Tweaks
+============================================================ */
+@media (max-width: 640px) {
+  .prompt-card { padding: 10px; gap: 10px; }
+  .prompt-title { font-size: 0.98rem; }
+  .input { height: 42px; padding-left: 40px; }
+  .essay-title-main { font-size: 1.6rem; }
+  .word-count { top: 6px; right: 8px; font-size: 0.82rem; }
+}
